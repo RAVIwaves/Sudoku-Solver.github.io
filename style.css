@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+}
+
+.cell input{
+    text-align: center;
+}
+.sudoku-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cell input{
+    width: 30px;
+    height: 30px;
+}
