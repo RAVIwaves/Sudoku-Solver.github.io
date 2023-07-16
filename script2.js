@@ -19,7 +19,6 @@ function solve(row, column, box, blank, i, sudoku, sizi) {
         sudoku[rr][cc] = j;
         return true;
       }
-
       row[rr][j - 1] = false;
       column[cc][j - 1] = false;
       box[bb][j - 1] = false;
@@ -66,12 +65,12 @@ function solveSudokuF(sudoku) {
 
 function solveSudoku() {
   const sudoku = [];
-  let rows = document.getElementsByTagName("tr");
   for (let i = 0; i < 9; i++) {
-    let cells = rows[i].getElementsByTagName("input");
     sudoku[i] = [];
     for (let j = 0; j < 9; j++) {
-      sudoku[i][j] = parseInt(cells[j].value) || 0;
+      var idd = ("rc"+i)+j ;
+      var cell = document.getElementById(idd) ;
+      sudoku[i][j] = parseInt(cell.value) || 0;
     }
   }
   var ans = solveSudokuF(sudoku);
@@ -80,7 +79,6 @@ function solveSudoku() {
     for (let i = 0; i < 9; i++) {
       for (let j = 0; j < 9; j++) {
         var idd = ("rc"+i)+j ;
-        console.log(idd) ;
         var inputElement = document.getElementById(idd);
         inputElement.value = sudoku[i][j] ;
       }
@@ -90,4 +88,15 @@ function solveSudoku() {
     alert("Invalid Sudoku");
   }
   return;
+}
+
+function resetSoduko()
+{
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      var idd = ("rc"+i)+j ;
+      var inputElement = document.getElementById(idd);
+      inputElement.value = null ;
+    }
+  }
 }
